@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Library Management</h1>
+    
+    <section>
+        <h2>Ricerca Libri</h2>
+        <input type="text" id="searchTitle" placeholder="Cerca per Titolo">
+        <button id="bottoneCerca">Cerca</button>
+    </section>
+    
+    <section>
+        <h2>Elenco Libri</h2>
+        <div id="bookList"></div>
+    </section>
+    
+    <section>
+        <h2>Aggiungi/Modifica Libro</h2>
+        <input type="text" id="bookTitle" placeholder="Titolo">
+        <button onclick="addOrUpdateBook()">Aggiungi/Modifica</button>
+    </section>
+    
+    <script src="js/app.js"></script>
+</body>
+</html>
