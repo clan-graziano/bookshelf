@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+*{
+    font-family: Varela Round;
+}
+
+.varela-round-regular {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+body {
+    margin: 20px;
+}
+
+h1, h2 {
+    color: #dd7f13;
+}
+
+input, button {
+    margin: 5px;
+    padding: 10px;
+}
+
+button {
+    cursor: pointer;
+}
+
+#bookList {
+    margin-top: 20px;
+    
+}
+
+.book-item {
+    border: 5px solid #ffffff;
+    padding: 10px;
+    margin: 10px 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+}
+
+.sfondo{
+    position:absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+@media (min-aspect-ratio: 16/9){
+    .sfondo{
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-aspect-ratio: 16/9){
+    .sfondo{
+        width: auto;
+        height: 100%;
+    }
+}
+
+p{
+    color: #dd7f13;
+    
+}
+.bg{
+    background-color: rgb(10, 1, 10);
+}
+
+.bg h1{
+    border:#ffffff solid;
+    border-radius: 100px;
+}
