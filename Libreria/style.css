@@ -1,10 +1,13 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: Poetsen;
     margin: 20px;
 }
 
 h1, h2 {
-    color: #333;
+    color: #dd7f13;
 }
 
 input, button {
@@ -18,10 +21,46 @@ button {
 
 #bookList {
     margin-top: 20px;
+    
 }
 
 .book-item {
-    border: 1px solid #ddd;
+    border: 1px solid #ac550e;
     padding: 10px;
     margin: 10px 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+
+}
+
+.sfondo{
+    position:absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+@media (min-aspect-ratio: 16/9){
+    .sfondo{
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-aspect-ratio: 16/9){
+    .sfondo{
+        width: auto;
+        height: 100%;
+    }
+}
+
+p{
+    color: #dd7f13;
+    
+}
+.bg{
+    background-color: rgb(10, 1, 10);
 }
