@@ -1,8 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
+*{
+    font-family: Varela Round;
+}
 
+.varela-round-regular {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+  
 body {
-    font-family: Poetsen;
     margin: 20px;
 }
 
@@ -25,7 +33,7 @@ button {
 }
 
 .book-item {
-    border: 1px solid #ac550e;
+    border: 5px solid #ffffff;
     padding: 10px;
     margin: 10px 0;
     background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
@@ -33,7 +41,6 @@ button {
     -webkit-backdrop-filter: blur(10px);
     border-radius: 20px;
     box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
-
 }
 
 .sfondo{
@@ -63,4 +70,9 @@ p{
 }
 .bg{
     background-color: rgb(10, 1, 10);
+}
+
+.bg h1{
+    border:#ffffff solid;
+    border-radius: 100px;
 }

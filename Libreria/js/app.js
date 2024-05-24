@@ -1,30 +1,70 @@
 const baseApiUrl = 'https://librarymanagementpw.azurewebsites.net/api';
 var button= document.querySelector('.submit');
-var bottoneCerca = document.querySelector('#bottoneCerca')
+var bottoneCerca = document.querySelector('#bottoneCerca');
+var search_book = document.querySelector('#searchTitle');
 //textbox titolo che l'utente ricerca
 
 //funzione per la ricerca (eventListener)
-bottoneCerca.addEventListener('click', function(name){
+bottoneCerca.addEventListener('click', function() {
+    // Ottieni il valore del nome del libro dal campo di input
+    let nomeLibro = document.getElementById('searchTitle').value;
     fetch('https://librarymanagementpw.azurewebsites.net/api/Book')
-    .then(response => response.json())
-    .then(data => {
-      //crea lista
-      console.log(data);
-      for(var i=0; i<data.length; i++) {
-        var obj = data[i];
-        for(var key in obj) {
-            var value = obj[key];
-            console.log(key+" = " + value);
-            if(key == "title"){
-                console.log(obj[key])
-                //se il titolo cercato corrisponde al titolo del libro allora lo aggiungete ad una lista
+        .then(response => response.json())
+        .then(data => {
+            // Crea una lista per contenere i libri trovati
+            let listaLibriTrovati = [];
+
+            console.log(data);
+
+            for (var i = 0; i < data.length; i++) {
+                var obj = data[i];
+                for (var key in obj) {
+                    if (key === "title") {
+                        // console.log(obj[key] + "+" + nomeLibro);
+                        // Se il titolo cercato corrisponde al titolo del libro, lo aggiunge alla lista
+                        if (obj[key].toLowerCase() === nomeLibro.toLowerCase()) {
+                            listaLibriTrovati.push(obj);                           
+                        }
+                    }
+                }
             }
-        }
-      }
-      //visualizzo gli elementi nella lista. 
-    })
-    .catch(err => alert("get andata male"));
-})
+            console.log(listaLibriTrovati);
+
+            for (var i = 0; i < listaLibriTrovati.length; i++) {
+                var obj = listaLibriTrovati[i];
+                console.log("**Titolo:** " + obj.title);
+                console.log("**Prezzo:** " + obj.price);
+                console.log("-----------------------");
+                books.forEach(book => {
+                    const libro = document.createElement('div');
+                    libro.className = 'libro';
+                    libro.innerHTML = `
+                        <h2>Risultato libro</h2>
+                        <p>Titolo: ${book.title}</p>
+                        <p>Prezzo: ${book.price}</p> 
+                        `;
+                    libro.appendChild(libro);
+                });
+              }
+
+            // Visualizza gli elementi nella lista
+            let listaElementi = document.getElementById('listaLibri');
+            listaElementi.innerHTML = ''; // Pulisce la lista precedente
+
+            if (listaLibriTrovati.length > 0) {
+                for (var j = 0; j < listaLibriTrovati.length; j++) {
+                    let libro = listaLibriTrovati[j];
+                    let listItem = document.createElement('li');
+                    listItem.textContent = `Titolo: ${libro.title}, Autore: ${libro.author}, Anno: ${libro.year}`;
+                    listaElementi.appendChild(listItem);
+                }
+            } else {
+                listaElementi.textContent = 'Nessun libro trovato con quel titolo.';
+            }
+        })
+        .catch(err => alert("La richiesta è andata male: " + err));
+});
+
 
 // Funzione per cercare libri
 async function searchBooks() {
@@ -127,6 +167,8 @@ async function addOrUpdateBook() {
         alert('Errore durante l\'aggiunta/modifica del libro. Controlla la console per i dettagli.');
     }
 }
+
+
 window.onload = function() {
     searchBooks();
 };
@@ -155,6 +197,5 @@ window.onload = function() {
     searchBookShelves();
     searchGenres();
 };
-
 
 
